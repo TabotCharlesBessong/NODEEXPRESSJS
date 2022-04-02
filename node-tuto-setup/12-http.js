@@ -31,4 +31,10 @@ const server = http.createServer((req, res) => {
   }
 })
 
+const ld = require('lodash')
+
+const items = [1,[2,[3,[4,[5,[6]]]]]]
+const flat = ld.flattenDeep(items)
+console.log(flat);
+
 server.listen(5000)
