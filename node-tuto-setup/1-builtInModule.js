@@ -1,5 +1,7 @@
 // Built in modules 
 const express = require('express')
+// const the http module
+const http = require('http')
 // The os module , helps us interact with the OS and the computer
 const os = require('os')
 // The path module
@@ -54,3 +56,12 @@ app.listen(port,(req,res)=>{
 app.get(port,(req,res)=>{
   res.send("Hello my friends , its been long time ")
 })
+
+// The http module 
+const server = http.createServer((req,res)=>{
+  res.write(`The server is running on port ${port} `)
+  res.end()
+})
+ 
+
+// server.listen(5000)
