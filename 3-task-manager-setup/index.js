@@ -8,11 +8,10 @@ require('dotenv').config()
 
 //middleware
 app.use(express.json())
+app.use(express.static('./public'))
 
 // routes
-app.get('/hello',(req,res)=>{
-  res.send('Task Manager App')
-})
+
 
 app.use('/api/v1/tasks',tasks)
 
