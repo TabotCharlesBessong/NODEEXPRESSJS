@@ -1,13 +1,16 @@
 const Product = require('../models/product');
 
 const getAllProductsStatic = async (req, res) => {
+  // The return condition is finding values greater than 30
   const products = await Product.find({ price: { $gt: 30 } })
     .sort('price')
     .select('name price');
+    // we are sorting them by price and we select only 2 values from all the products which is the name and price 
 
   res.status(200).json({ products, nbHits: products.length });
 };
 const getAllProducts = async (req, res) => {
+  // This is the query that will enable us to get the product
   const { featured, company, name, sort, fields, numericFilters } = req.query;
   const queryObject = {};
 
