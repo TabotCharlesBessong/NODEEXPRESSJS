@@ -5,14 +5,14 @@
 
 // setup authentication only the request with JWT can access the dashboard
 const jwt = require('jsonwebtoken')
-const customErr = require('../errors/custom-error')
+const {BadRequestErr} = require('../errors/bad-request')
 const login = async (req,res)=>{
   const {username,password} = req.body
   // console.log(username,password);
   // mongoose validation
   // check in the controller  
   if(!username || !password ){
-    throw new customErr('Please provide username and password',400)
+    throw new BadRequestErr('Please provide username and password')
   }
   
   const id = new Date().getTime()
